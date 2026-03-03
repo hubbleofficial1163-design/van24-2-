@@ -299,7 +299,7 @@ html, body {
     margin: 0 auto;
 }
 
-.calendar-dates span:nth-child(4) {
+.calendar-dates span:nth-child(5) {
     background-color: #595b4e;
     color: white;
     position: relative;
@@ -1676,3 +1676,4 @@ section, footer {
     margin-left: 0;
     margin-right: 0;
 }
+
