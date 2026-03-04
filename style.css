@@ -1763,3 +1763,92 @@ section, footer {
     margin-left: 0;
     margin-right: 0;
 }
+
+
+/* Аудиоплеер в hero секции */
+.audio-player-wrapper {
+    position: absolute;
+    bottom: 80px; /* Поднимаем над бегущей строкой */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Позволяет кликать сквозь wrapper на кнопку */
+}
+
+.audio-control {
+    background-color: rgba(89, 91, 78, 0.8);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    pointer-events: auto; /* Возвращаем возможность кликать */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.audio-control:hover {
+    background-color: #595b4e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border-color: white;
+}
+
+.audio-control:active {
+    transform: translateY(0);
+}
+
+.audio-control.playing {
+    background-color: #595b4e;
+    border-color: white;
+}
+
+.play-icon, .pause-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.audio-text {
+    font-size: 1.2rem;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 500px) {
+    .audio-player-wrapper {
+        bottom: 70px;
+    }
+    
+    .audio-control {
+        padding: 8px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .play-icon, .pause-icon {
+        font-size: 1.2rem;
+    }
+    
+    .audio-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .audio-player-wrapper {
+        bottom: 65px;
+    }
+    
+    .audio-control {
+        padding: 6px 15px;
+    }
+}
