@@ -21,6 +21,19 @@
             <h1>Артем <span class="amp">&</span> Анастасия</h1>
         </div>
 
+        <!-- Добавьте это после ticker-container -->
+        <div class="audio-player-wrapper">
+            <button class="audio-control" id="audioToggle">
+                <span class="play-icon">▶</span>
+                <span class="pause-icon" style="display: none;">⏸</span>
+                <span class="audio-text">включить музыку</span>
+            </button>
+            <audio id="wedding-audio" loop preload="metadata">
+                <source src="1.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+        </div>
+
         <div class="ticker-container">
             <div class="ticker-content" id="tickerText">приглашение на свадьбу</div>
         </div>
@@ -276,7 +289,7 @@
         <div class="footer-content">
             <div class="container">
                 <p class="footer-waiting">Наш ведущий:</p>
-                <p class="footer-names">Олег +7-977-865-30-10</p>
+                <p class="footer-names">Алексей 8 (985) 126-56-21</p>
             </div>
         </div>
     </footer>
