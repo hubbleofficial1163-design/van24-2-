@@ -114,7 +114,7 @@ function weddingTimer() {
 // Функция для отправки данных в Google Sheets
 async function submitFormToGoogleSheets(formData) {
     // TODO: Замените этот URL на ваш URL веб-приложения Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKth1hg8INMsMAH3HUcYlIx5_DeQNgWe-JIqDDam9f7C/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzNURxVzHC5XSiRPnSAK3TD_48AtRy7vvHTM3k7I2qTOr2Cl0MT8xjpnK8rWL1hdYkj/exec';
     
     try {
         const formDataToSend = new FormData();
@@ -409,4 +409,57 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Добавьте эту строку
     initGallery();
+});
+
+
+// Функция для аудиоплеера
+function initAudioPlayer() {
+    const audio = document.getElementById('wedding-audio');
+    const toggleBtn = document.getElementById('audioToggle');
+    const playIcon = toggleBtn.querySelector('.play-icon');
+    const pauseIcon = toggleBtn.querySelector('.pause-icon');
+    const audioText = toggleBtn.querySelector('.audio-text');
+    
+    if (!audio || !toggleBtn) return;
+    
+    // Устанавливаем громкость
+    audio.volume = 0.5;
+    
+    toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (audio.paused) {
+            audio.play().then(() => {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'inline';
+                audioText.textContent = 'выключить музыку';
+                toggleBtn.classList.add('playing');
+            }).catch(error => {
+                console.log('Автовоспроизведение заблокировано браузером:', error);
+                alert('Нажмите на кнопку, чтобы включить музыку (браузер заблокировал автовоспроизведение)');
+            });
+        } else {
+            audio.pause();
+            playIcon.style.display = 'inline';
+            pauseIcon.style.display = 'none';
+            audioText.textContent = 'включить музыку';
+            toggleBtn.classList.remove('playing');
+        }
+    });
+    
+    // Если музыка закончилась, возвращаем иконку play
+    audio.addEventListener('ended', function() {
+        playIcon.style.display = 'inline';
+        pauseIcon.style.display = 'none';
+        audioText.textContent = 'включить музыку';
+        toggleBtn.classList.remove('playing');
+    });
+}
+
+// Добавьте вызов функции в существующий DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... существующий код ...
+    
+    // Добавьте эту строку в конец функции
+    initAudioPlayer();
 });
