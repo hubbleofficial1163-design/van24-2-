@@ -1768,14 +1768,14 @@ section, footer {
 /* Аудиоплеер в hero секции */
 .audio-player-wrapper {
     position: absolute;
-    bottom: 80px; /* Поднимаем над бегущей строкой */
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     width: 100%;
     display: flex;
     justify-content: center;
-    pointer-events: none; /* Позволяет кликать сквозь wrapper на кнопку */
+    pointer-events: none;
 }
 
 .audio-control {
@@ -1793,9 +1793,10 @@ section, footer {
     align-items: center;
     gap: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    pointer-events: auto; /* Возвращаем возможность кликать */
+    pointer-events: auto;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1;
 }
 
 .audio-control:hover {
@@ -1815,8 +1816,17 @@ section, footer {
 }
 
 .play-icon, .pause-icon {
-    font-size: 1.4rem;
-    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.play-icon svg, .pause-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .audio-text {
@@ -1830,16 +1840,18 @@ section, footer {
     }
     
     .audio-control {
-        padding: 8px 20px;
-        font-size: 1.1rem;
+        padding: 10px 25px;
+        font-size: 1.2rem;
+        gap: 8px;
     }
     
     .play-icon, .pause-icon {
-        font-size: 1.2rem;
+        width: 18px;
+        height: 18px;
     }
     
     .audio-text {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -1849,6 +1861,16 @@ section, footer {
     }
     
     .audio-control {
-        padding: 6px 15px;
+        padding: 8px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .play-icon, .pause-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .audio-text {
+        font-size: 1rem;
     }
 }
