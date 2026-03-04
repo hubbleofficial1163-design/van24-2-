@@ -22,10 +22,19 @@
         </div>
 
         <!-- Добавьте это после ticker-container -->
+        <!-- Аудиоплеер в hero секции -->
         <div class="audio-player-wrapper">
             <button class="audio-control" id="audioToggle">
-                <span class="play-icon">▶</span>
-                <span class="pause-icon" style="display: none;">⏸</span>
+                <span class="play-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </span>
+                <span class="pause-icon" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </span>
                 <span class="audio-text">включить музыку</span>
             </button>
             <audio id="wedding-audio" loop preload="metadata">
